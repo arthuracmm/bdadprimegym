@@ -56,7 +56,7 @@ Prime Gym é uma academia que deseja implementar um sistema de banco de dados pa
 
 ## 2. Modelagem Conceitual
 
-![Modelagem Conceitual](imagens/der_prime_gym.png)
+![Modelagem Conceitual](images/DER.png)
 
 ## 3. Modelagem Lógica
 
@@ -166,28 +166,24 @@ INSERT INTO Membro_Aula (ID_Membro, ID_Aula) VALUES
 INSERT INTO Membros (PrimeiroNome, Sobrenome, DataNascimento, Email, Telefone, Rua, Cidade, Estado, CEP, Plano_ID) VALUES
 ('Pedro', 'Almeida', '1992-07-22', 'pedro@gmail.com', '555555555', 'Rua C', 'Cidade C', 'Estado C', '11223-456', 3);
 ```
-![Inserção de Dados](imagens/insercao_dados.png)
 
 ### Leitura de dados
 
 ```sql
 SELECT * FROM Membros WHERE ID_Membro = 1;
 ```
-![Leitura de Dados](imagens/leitura_dados.png)
 
 ### Atualização de dados
 
 ```sql
 UPDATE Membros SET Email = 'novoemail@gmail.com' WHERE ID_Membro = 1;
 ```
-![Atualização de Dados](imagens/atualizacao_dados.png)
 
 ### Deleção de dados
 
 ```sql
 DELETE FROM Membros WHERE ID_Membro = 1;
 ```
-![Deleção de Dados](imagens/delecao_dados.png)
 
 ## 7. Relatórios
 
@@ -198,7 +194,6 @@ SELECT Membros.PrimeiroNome, Membros.Sobrenome, Planos.TipoPlano
 FROM Membros 
 JOIN Planos ON Membros.Plano_ID = Planos.ID_Plano;
 ```
-![Relatório 1](imagens/relatorio_1.png)
 
 ### Relatório 2: Membros em uma determinada aula
 
@@ -209,14 +204,12 @@ JOIN Membro_Aula ON Membros.ID_Membro = Membro_Aula.ID_Membro
 JOIN Aulas ON Membro_Aula.ID_Aula = Aulas.ID_Aula 
 WHERE Aulas.ID_Aula = 1;
 ```
-![Relatório 2](imagens/relatorio_2.png)
 
 ### Relatório 3: Equipamentos adquiridos após uma data específica
 
 ```sql
 SELECT * FROM Equipamentos WHERE DataAquisicao > '2022-01-01';
 ```
-![Relatório 3](imagens/relatorio_3.png)
 
 ### Relatório 4: Funcionários e suas respectivas aulas
 
@@ -225,23 +218,19 @@ SELECT Funcionários.PrimeiroNome, Funcionários.Sobrenome, Aulas.NomeAula
 FROM Funcionários 
 JOIN Aulas ON Funcionários.ID_Funcionario = Aulas.ID_Professor;
 ```
-![Relatório 4](imagens/relatorio_4.png)
 
 ### Relatório 5: Planos mais caros que um determinado valor
 
 ```sql
 SELECT * FROM Planos WHERE Preco > 200;
 ```
-![Relatório 5
 
-](imagens/relatorio_5.png)
 
 ### Relatório 6: Membros ordenados por data de inscrição
 
 ```sql
 SELECT * FROM Membros ORDER BY DataInscricao DESC;
 ```
-![Relatório 6](imagens/relatorio_6.png)
 
 ### Relatório 7: Aulas e a quantidade de membros inscritos
 
@@ -251,7 +240,6 @@ FROM Aulas
 JOIN Membro_Aula ON Aulas.ID_Aula = Membro_Aula.ID_Aula 
 GROUP BY Aulas.ID_Aula;
 ```
-![Relatório 7](imagens/relatorio_7.png)
 
 ### Relatório 8: Membros que têm aniversário em um determinado mês
 
@@ -260,7 +248,6 @@ SELECT PrimeiroNome, Sobrenome
 FROM Membros 
 WHERE MONTH(DataNascimento) = 5;
 ```
-![Relatório 8](imagens/relatorio_8.png)
 
 ### Relatório 9: Média salarial dos funcionários por cargo
 
@@ -269,7 +256,6 @@ SELECT Cargo, AVG(Salario) AS MediaSalarial
 FROM Funcionários 
 GROUP BY Cargo;
 ```
-![Relatório 9](imagens/relatorio_9.png)
 
 ### Relatório 10: Total de equipamentos disponíveis
 
@@ -278,20 +264,5 @@ SELECT NomeEquipamento, SUM(Quantidade) AS TotalQuantidade
 FROM Equipamentos 
 GROUP BY NomeEquipamento;
 ```
-![Relatório 10](imagens/relatorio_10.png)
 
 ---
-
-### O que deverá ser entregue?
-
-Este repositório contém:
-- `prova.sql` com todo o código SQL desenvolvido.
-- Pasta `imagens` contendo todos os prints e imagens utilizadas.
-- `README.md` detalhado conforme as seções acima.
-
----
-
-**Nota:** Os prints de todas as execuções SQL foram salvos na pasta `imagens` e referenciados no README para facilitar a visualização dos resultados.
-```
-
-Certifique-se de adicionar os prints mencionados no README na pasta `imagens` do seu repositório. Esse README fornece uma estrutura clara e detalhada, demonstrando o domínio dos conceitos de modelagem e SQL.
